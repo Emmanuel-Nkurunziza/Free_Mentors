@@ -1,39 +1,29 @@
 // OPEN/CLOSE MODAL ON THE USER BOARD PAGE
 
 // Get modal elements
-var OpenMentor1ModalElements = document.getElementById('Mentor1ModalElts');
-
+var MentorModal = document.querySelector('#MentorModal');
 
 // Get open modal buttons
-var viewMoreMentor1Button = document.getElementById('Mentor1Modal');
-
+var btn_open_modal = document.querySelectorAll('.btn-open-modal');
 
 
 // Get close mondal button
-var closeMondalButton = document.getElementsByClassName('closeModalButton')[0];
-
-
-// Listen for click to open signUpModal (ONLY ONE BUTTON!!!)
-viewMoreMentor1Button.addEventListener('click', viewMentor1);
-// Listen for click to close signUpModal
-closeMondalButton.addEventListener('click', closeSignUpModal);
-// Listen for click to close signUpModal -- by clicking outide window
-window.addEventListener('click', closeSignUpModalOut);
-
+var closeMondalButton = document.querySelector('.closeModalButton');
 
 
 //Function to open the signUp modal
-function viewMentor1() {
-    OpenMentor1ModalElements.style.display = 'block';
+const viewMentor = (e)=> {
+     let menta_index =  e.target.getAttribute('data-index');
+    document.querySelector('.mentor-index').textContent = menta_index;
+    MentorModal.style.display = 'block';
 }
-//Function to close the signUp modal
-function closeSignUpModal() {
-    signUpModalElements.style.display = 'none';
-}
-//Function to close the signUp modal-- by clicking outide window
-function closeSignUpModalOut(e) {
-    if (e.target == signUpModalElements) {
-        signUpModalElements.style.display = 'none';
-    }
-    
-}
+
+// Listen for click to open signUpModal (ONLY ONE BUTTON!!!)
+btn_open_modal.forEach((btn,index)=>{
+   btn.addEventListener('click', viewMentor);
+});
+
+closeMondalButton.addEventListener('click',(e)=>{
+    MentorModal.style.display = 'none';
+});
+

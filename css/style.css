@@ -47,12 +47,11 @@ header a, #bodyContent a {
 }
 
 header li {
-    float: left;
     display: inline;
     padding: 0 20px 0 20px;
 }
 
-header #logo{
+header #logo {
     float: left;
 }
 
@@ -76,15 +75,22 @@ header a:hover, #bodyContent a:hover {
 #bodyContent {
     padding-top: 1px;
     min-height: 450px;
-    background: url('../images/mentor.png') no-repeat 0px -250px ;
+    /* background: url('../images/mentor.png') no-repeat 0px -250px ; */
+    background-color: #2e2e2e;
     background-size: cover; 
     justify-content: center;
     color:#ffffff;
     border-bottom: #000000 3px solid; 
 }
 
+#bodyContent .index-image {
+    width: 100%;
+    height: auto;
+    padding-bottom: 0;
+}
+
 #bodyContent p {
-    margin-top: 500px;
+    margin-top: 0;
     font-size: 30px;
     font-weight: bolder;
     text-align: center;
@@ -107,7 +113,7 @@ header a:hover, #bodyContent a:hover {
 /* footer styling */
 
 footer {
-    min-height: 20px;
+    min-height: 10px;
     padding: 20px;
     color: #ffffff;
     font-weight: bold;
@@ -121,18 +127,18 @@ footer {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgba(255, 255, 255, 0.6)
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .modal-content {
     background-color: antiquewhite;
-    margin: 20% auto;
+    margin: 7.5% auto;
     padding: 0;
     width: 70%;
     border: 1px;
@@ -157,17 +163,47 @@ footer {
 
 }
 
-.signUp-form input {
-    width: 90%;
-    padding: 5px;
-}
-
 .modal-header .button {
     float: right;
     font-size: 25px;
 }
 
-.modal-footer .button:hover, .modal-footer .button:focus, .modal-header .button:hover, .modal-header .button:focus {
+#welcomingModalElts .modal-content .modal-header span, 
+#sessionBoardModalElts .modal-header span,
+#sessionBoardModalElts2 .modal-header button {
+    margin-top: -50px;
+}
+
+#welcomingModalElts .modal-content .modal-header span a, 
+#sessionBoardModalElts .modal-header span a,
+#user-list #boxes .container button a,
+#sessionBoardModalElts2 .modal-header button {
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: bolder;
+    text-decoration: none;
+    justify-content: center;
+}
+
+#welcomingModalElts .modal-content .modal-body p, 
+#sessionBoardModalElts .modal-body p {
+    padding: 30px;
+    float: auto;
+    color: orangered;
+    font-weight: bold;
+}
+
+#main #overview  .modal-body .signUp-form input, 
+#main #overview  .modal-body .signUp-form textarea,
+#signInModal .modal-content  .modal-body input{
+    width: 90%;
+    padding: 10px;
+    /* background-color: #ffffff; */
+    color: #000000;
+}
+
+.modal-footer .button:hover, .modal-footer .button:focus, 
+.modal-header .button:hover, .modal-header .button:focus {
     color: #000000;
     text-decoration: none;
     cursor: pointer;
@@ -179,6 +215,13 @@ footer {
     font-weight: bold;
 }
 
+
+/* ------------------------SIGN IN PAGE---------------------------------- */
+
+/* #main {
+    background-color: #b3b3b3;
+    min-height: 500px;
+} */
 
 /* -------------------------USER BOARD----------------------------------- */
 
@@ -233,6 +276,12 @@ footer {
     height: auto;
 }
 
+#MentorModal .modal-footer button a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
 
 /* -------------------------ADMIN BOARD----------------------------------- */
 
@@ -274,12 +323,134 @@ footer {
     line-height: 2.15em;
 }
 
+#user-list #boxes .container .box .innerbox p  a {
+    padding: 1px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: #ffffff;
+    line-height: 1em;
+    text-decoration: none
+    
+}
+
+#user-list #boxes .container .box .innerbox p  a:hover {
+    color: #000000;
+   
+}
+
+#main #overview {
+    width: 100%;
+    min-height: 300px;
+    background:#b3b3b3;
+    padding: 0;
+    display: grid;
+}
+
+#main #overview p{
+    padding-left: 50px;
+}
+
+#main #overview p span {
+    color: orangered;
+}
+
+#main  #overview ul {
+    padding: 0 0 25px 15px;
+}
+
+#main  #overview li {
+    float: left;
+    display: inline;
+    padding: 10px;
+    
+}
+
+
+#main #overview .entity {
+    width: 220px;
+    height: 220px;
+    background-color: white;
+    border-radius: 50%;
+    justify-content: center;
+    padding-left: 25px;
+
+}
+
+#main #overview .entity .inner-text {
+    text-align: center;
+    padding-top: 80px;
+}
+
+
+
+
 /* -------------------------MENTOR BOARD----------------------------------- */
 
 #user-list #boxes .container .box .innerbox .line-spacing {
     line-height: 1em;
 }
 
+#user-list #boxes .container .box .innerbox span input {
+    line-height: 3px;;
+    float: right;
+}
+
 #main .button-line-spacing {
     line-height: 0.3em;
 }
+
+
+
+@media(max-width: 768px) {
+    header nav {
+        float: none;
+        margin-top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header {
+        padding-bottom: 20px;
+    }
+}
+
+
+/* ---------------------MENTORSHIP SESSION BOARD-------------------------------------- */
+
+
+#user-list #boxes .container .box-label,
+#sessionBoardModalElts .modal-content .modal-body .box-label {
+    padding: 20px;
+    font-weight: bolder;
+} 
+
+#user-list #boxes .container .box-textarea,
+#sessionBoardModalElts .modal-content .modal-body .box-textarea {
+    padding: 20px;
+}
+
+#user-list #boxes .container .box-textarea textarea,
+#sessionBoardModalElts .modal-content .modal-body .box-textarea textarea {
+    width: 100%;
+    background-color: #b3b3b3;
+    color:#000000;
+    font-weight: bold;
+}
+
+#user-list #boxes .container button {
+    float: right;
+    margin: 0 20px 20px 0;
+}
+
+
+/* ---------------Mentorship session acceptance -------------- */
+
+#sessionBoardModalElts2 .modal-body p {
+    padding: 30px;
+    float: auto;
+    color: #000000;
+    font-weight: bold;
+}
+
